@@ -165,7 +165,7 @@ a:hover {
   }
 }
 
-.card .menu-content {
+/* .card .menu-content {
   list-style-type: none;
   position: absolute;
   right: 0;
@@ -183,6 +183,47 @@ a:hover {
 
 .card .menu-content li {
   display: inline-block;
+} */
+
+.menu-content-top {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-content-top li {
+  width: 36px;
+  height: 36px;
+  margin-right: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fix for SVG icon alignment */
+.menu-content-top li a.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-content-top li a.social-icon svg {
+  margin: 0; /* Remove any margin that might be affecting alignment */
+}
+
+.menu-content-top li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
 }
 
 .card .wrapper {
@@ -526,11 +567,13 @@ ul {
 
 @media (max-width: 377px) {
   .skill-card .data {
-    transform: translateY(calc(90px + 4em));
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
   }
-  .social-icon svg {
-    margin-top: 20px;
-  }
+  
+  .skill-card .wrapper:hover .data {
+    transform: translateY(0%);
+  }  
 }
 
 @media (min-width: 960px) {
@@ -561,6 +604,7 @@ ul {
     flex-direction: column-reverse;
   }
 }
+
 
 /*
 ----------------------------
@@ -855,4 +899,11 @@ SVG ANIMATIONS PROJECT PAGE
   animation-iteration-count: infinite;
   animation-duration: 3.3s;
   transform-origin: 785.132px 295.833px;
+}
+
+.project-description {
+  font-size: 1.5rem;  /* adjust size here */
+  color: #ccc;         /* optional: lighter text */
+  margin-top: 0em;
+  line-height: 1.4;
 }
